@@ -22,7 +22,6 @@ let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
             <Accordion titleValue={"Menu Controlled"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed}/>
 
 
-
             <UncontrolledOnOff onChange={switchSetOn}/> <div>{switchOn.toString()}</div>
             <OnOff on={switchOn} setOn={switchSetOn}/>
             <UncontrolledAccordion titleValue={"Users"}/>
