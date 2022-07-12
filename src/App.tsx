@@ -1,26 +1,47 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Accordion from "./Accordion";
+import {Rating, RatingValueType} from "./Rating";
+import {OnOff} from "./Components/OnOff";
+import {useState} from "react";
+import UncontrolledAccordion from "./Components/UncontrolledAccordion";
+import {UncontrolledRating} from "./Components/UncontrolledRating";
+import {UncontrolledOnOff} from "./Components/UncontrolledOnOff";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(props: any) {
+
+let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+    let [switchOn,switchSetOn] = useState(true)
+
+    return (
+        <div>
+            <PageTitle title={"This is App component"}/>
+            <PageTitle title={'My friends'}/>
+            Article 1
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <Accordion titleValue={"Menu Controlled"} collapsed={accordionCollapsed} onChange={setAccordionCollapsed}/>
+
+
+
+            <UncontrolledOnOff onChange={switchSetOn}/> <div>{switchOn.toString()}</div>
+            <OnOff on={switchOn} setOn={switchSetOn}/>
+            <UncontrolledAccordion titleValue={"Users"}/>
+            <UncontrolledRating/>
+
+
+
+
+        </div>
+    );
+}
+
+type PageTitlePropsType = {
+    title: string
+}
+
+function PageTitle(props: PageTitlePropsType) {
+    return <h1> {props.title}</h1>
 }
 
 export default App;
+
