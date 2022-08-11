@@ -6,12 +6,15 @@ import {useState} from "react";
 import UncontrolledAccordion from "./Components/UncontrolledAccordion";
 import {UncontrolledRating} from "./Components/UncontrolledRating";
 import {UncontrolledOnOff} from "./Components/UncontrolledOnOff";
+import {sum} from "./lesson_8";
 
 function App(props: any) {
 
 let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [switchOn,switchSetOn] = useState(true)
+
+    console.log(sum(3, 5, 7, 6, 4, 9))
 
     return (
         <div>
